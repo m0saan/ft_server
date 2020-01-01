@@ -1,5 +1,4 @@
 #!/bin/bash
-service nginx start
 apt-get install -y lsb-release
 apt-get install -y debconf-utils
 apt-get update
@@ -14,12 +13,16 @@ expect -c "
     send \"4\r\"
     expect EOF
  "
- apt-get update
-export DEBIAN_FRONTEND="noninteractive"
-debconf-set-selections <<< "mysql-server mysql-server/root_password password rootpw"
-debconf-set-selections <<< "mysql-server mysql-server/root_password_again password rootpw"
-apt-get install -y mysql-server
+ expect -c " 
+    set timeout 30
+    spawn apt-get install -y mysql-server
+    expect \"Enter root password:\"
+    send \"root\r\"
+    expect \"Re-enter root password: \"
+    send \"root\r\"
+    expect EOF
+ "
+apt-get update
 service mysql start
 service php7.3-fpm start
-service mysql status
-
+service nginx start
