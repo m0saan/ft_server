@@ -27,10 +27,8 @@ expect -c "
     spawn mysql -u root -p
     expect \"Enter password:\"
     send \"root\r\"
+    spawn bash sql_automated.sh
     expect EOF
 "
-CREATE USER 'spirox'@'localhost' IDENTIFIED BY 'spirox';
-GRANT ALL PRIVILEGES ON * . * TO 'spirox'@'localhost';
-FLUSH PRIVILEGES;
 bin/bash
 

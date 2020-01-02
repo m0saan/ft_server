@@ -20,13 +20,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'moboustt' );
+define( 'DB_NAME', 'wp' );
 
 /** MySQL database username */
-define( 'DB_USER', 'spirox' );
+define( 'DB_USER', 'toto' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'spirox' );
+define( 'DB_PASSWORD', 'toto' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
@@ -78,6 +78,7 @@ $table_prefix = 'wp_';
 define( 'WP_DEBUG', false );
 
 /* That's all, stop editing! Happy publishing. */
+define('WP_ALLOW_REPAIR', true);
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
