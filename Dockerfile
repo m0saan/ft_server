@@ -1,5 +1,16 @@
-FROM debian:buster
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: moboustt <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/01/05 15:00:31 by moboustt          #+#    #+#              #
+#    Updated: 2020/01/05 15:00:43 by moboustt         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
+FROM debian:buster
 RUN apt-get update
 EXPOSE 80 443
 RUN apt-get install -y gnupg wget curl expect nginx ufw
